@@ -1,0 +1,96 @@
+{
+    "evaluations": [
+      {
+        "id": 1,
+        "productId": 1,
+        "name": "João Silva",
+        "email": "joao.silva@example.com",
+        "feedback": "Ótimo filme, cheio de ação!",
+        "experience": "Feliz",
+        "recommend": true
+      }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "name": "Vingadores: Ultimato (Blu-ray)",
+        "price": "R$ 39,99",
+        "brand": "Marvel Studios",
+        "description": "O épico final da saga dos Vingadores, com muita ação e emoção.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      },
+      {
+        "id": 2,
+        "name": "O Senhor dos Anéis - A Sociedade do Anel (Livro)",
+        "price": "R$ 49,99",
+        "brand": "HarperCollins",
+        "description": "O primeiro volume da lendária saga de J.R.R. Tolkien.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      },
+      {
+        "id": 3,
+        "name": "Sabre de Luz Star Wars (Réplica)",
+        "price": "R$ 199,99",
+        "brand": "Hasbro",
+        "description": "Réplica fiel do icônico sabre de luz da franquia Star Wars.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      },
+      {
+        "id": 4,
+        "name": "Camiseta Geek - Códigos de Programação",
+        "price": "R$ 79,99",
+        "brand": "GeekWear",
+        "description": "Camiseta estilosa para quem ama programação.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      },
+      {
+        "id": 5,
+        "name": "De Volta para o Futuro (Blu-ray)",
+        "price": "R$ 29,99",
+        "brand": "Universal Pictures",
+        "description": "A clássica aventura no tempo com Marty McFly e Doc Brown.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      },
+      {
+        "id": 6,
+        "name": "1984 - George Orwell (Livro)",
+        "price": "R$ 34,99",
+        "brand": "Companhia das Letras",
+        "description": "O clássico distópico de George Orwell sobre um futuro sombrio.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      },
+      {
+        "id": 7,
+        "name": "Action Figure - Homem de Ferro",
+        "price": "R$ 99,99",
+        "brand": "Marvel Legends",
+        "description": "Figura de ação detalhada do Homem de Ferro.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      },
+      {
+        "id": 8,
+        "name": "HQ Batman - O Cavaleiro das Trevas",
+        "price": "R$ 59,99",
+        "brand": "DC Comics",
+        "description": "Uma das HQs mais famosas do Batman, escrita por Frank Miller.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      },
+      {
+        "id": 9,
+        "name": "Camiseta Geek - Super Mario",
+        "price": "R$ 69,99",
+        "brand": "Nintendo",
+        "description": "Camiseta com estampa do clássico personagem Mario.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      },
+      {
+        "id": 10,
+        "name": "Funko Pop! - Harry Potter",
+        "price": "R$ 89,99",
+        "brand": "Funko",
+        "description": "Figura colecionável de Harry Potter da série Funko Pop!",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR92RibS6nXGww1R7R2dYrHb53A0aS9CbjE5w&s"
+      }
+    ]
+  }
+  
