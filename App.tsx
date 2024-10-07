@@ -3,19 +3,35 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
 
+import Intro from './src/pages/Intro';
+import AvaliaProduto from './src/pages/AvaliaProduto';
+import ListaProdutos from './src/pages/ListaProdutos';
+
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
-      <Stack.Navigator initialRouteName="Início">
+      <Stack.Navigator initialRouteName="Intro" />
 
-        <Stack.Screen
-          name="Início"
-          component={Inicio}
-          options={{ header: () => <></> }}
-        />
+      <Stack.Screen
+        name="Intro"
+        component={Intro}
+        options={{ header: () => <></> }}
+      />
+
+      <Stack.Screen
+        name="AvaliaProduto"
+        component={AvaliaProduto}
+        options={{ header: () => <></> }}
+      />
+
+      <Stack.Screen
+        name="ListaProdutos"
+        component={ListaProdutos}
+        options={{ header: () => <></> }}
+      />
 
     </NavigationContainer>
   );
