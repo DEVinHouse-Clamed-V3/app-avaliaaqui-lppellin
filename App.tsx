@@ -9,30 +9,32 @@ import ListaProdutos from './src/pages/ListaProdutos';
 
 const Stack = createStackNavigator();
 
+
 export default function App() {
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
-      <Stack.Navigator initialRouteName="Intro" />
+      <Stack.Navigator initialRouteName="Intro" >
 
-      <Stack.Screen
-        name="Intro"
-        component={Intro}
-        options={{ header: () => <></> }}
-      />
+        <Stack.Screen
+          name="Intro"
+          component={Intro}
+          options={{ header: () => <></> }}
+        />
 
-      <Stack.Screen
-        name="AvaliaProduto"
-        component={AvaliaProduto}
-        options={{ header: () => <></> }}
-      />
+        <Stack.Screen
+          name="AvaliaProduto"
+          component={AvaliaProduto}
+          options={{ header: () => <></> }}
+        />
 
-      <Stack.Screen
-        name="ListaProdutos"
-        component={ListaProdutos}
-        options={{ header: () => <></> }}
-      />
+        <Stack.Screen
+          name="ListaProdutos"
+          component={ListaProdutos}
+          options={{ header: () => <></> }}
+        />
 
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
