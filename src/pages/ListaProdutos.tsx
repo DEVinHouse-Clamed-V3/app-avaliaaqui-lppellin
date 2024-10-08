@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { FlatList, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { NavProps } from "../interfaces/NavProps";
 import { Produto } from "../interfaces/Produto";
 
+import { globalStyles } from "../global/globalStyles";
 
 
 
@@ -23,20 +24,23 @@ export default function ListaProdutos({ navigation }: NavProps) {
     }, []);
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={globalStyles.container}>
             <Text>Lista de Produtos</Text>
-            <FlatList
+            <FlatList style={styles.list}
                 data={produtos}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
                     <View >
                         <Text>{item.name}</Text>
+                        <Image source={{ uri: item.image }} style={styles.img} />
+                        <Text>{item.price}</Text>
 
 
                         <TouchableOpacity
                             onPress={() => navigation.navigate("AvaliaProduto", { productId: item.id })} // Passando o ID como parâmetro
+                            style={globalStyles.btn}
                         >
-                            <Text>Avaliar</Text>
+                            <Text style={{ color: '#fff' }}>Avaliar</Text>
                         </TouchableOpacity>
                     </View>
                 )}
@@ -44,3 +48,13 @@ export default function ListaProdutos({ navigation }: NavProps) {
         </SafeAreaView>
     );
 }
+
+
+const styles = StyleSheet.create({
+    img: {
+        width: 120,
+        height: 120
+    },
+
+    
+});
