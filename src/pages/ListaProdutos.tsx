@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { NavProps } from "../interfaces/NavProps";
 import { Produto } from "../interfaces/Produto";
 
@@ -25,23 +25,32 @@ export default function ListaProdutos({ navigation }: NavProps) {
 
     return (
         <SafeAreaView style={globalStyles.container}>
-            <Text>Lista de Produtos</Text>
+            <StatusBar barStyle="auto" />
+            <Text style={globalStyles.title}>Lista de Produtos</Text>
+
             <FlatList style={styles.list}
                 data={produtos}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
-                    <View >
-                        <Text>{item.name}</Text>
-                        <Image source={{ uri: item.image }} style={styles.img} />
-                        <Text>{item.price}</Text>
+                    <View style={styles.card} >
 
+                        <Text style={styles.itemText}>{item.name}</Text>
 
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate("AvaliaProduto", { productId: item.id })} // Passando o ID como parâmetro
-                            style={globalStyles.btn}
-                        >
-                            <Text style={{ color: '#fff' }}>Avaliar</Text>
-                        </TouchableOpacity>
+                        <View style={styles.cardRow}>
+                            <Image source={{ uri: item.image }} style={styles.img} />
+                            <Text style={styles.itemDesc}>{item.description}</Text>
+                        </View>
+
+                        <View style={styles.cardRow}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("AvaliaProduto", { productId: item.id })} // Passando o ID como parâmetro
+                                style={globalStyles.btn}
+                            >
+                                <Text style={{ color: '#fff', fontWeight: 'bold' }}>Avaliar</Text>
+                            </TouchableOpacity>
+                            <Text style={styles.itemText}>{item.price}</Text>
+                        </View>
+
                     </View>
                 )}
             />
@@ -53,8 +62,49 @@ export default function ListaProdutos({ navigation }: NavProps) {
 const styles = StyleSheet.create({
     img: {
         width: 120,
-        height: 120
+        height: 120,
+        marginBottom: 10,
+        borderRadius: 20,
     },
 
-    
+    itemText: {
+        fontSize: 18,
+        marginBottom: 10,
+        color: '#fff',
+        // borderWidth: 1,
+        // borderColor: '#ee0b0b',
+
+    },
+
+    itemDesc: {
+        fontSize: 16,
+        marginBottom: 10,
+        color: '#fff',
+        width: '50%',
+
+    },
+
+    card: {
+        backgroundColor: '#27274e',
+        padding: 15,
+        marginVertical: 10,
+        borderRadius: 5,
+        // alignItems: 'center',
+        width: '90%',
+        alignSelf: 'center',
+
+
+
+    },
+
+    cardRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        // borderWidth: 1,
+        // borderColor: '#fff',
+
+    },
+
+
 });

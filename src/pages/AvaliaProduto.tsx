@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, Button, SafeAreaView, Alert, Switch } from "react-native";
+import { View, Text, TextInput, Button, SafeAreaView, Alert, Switch, StatusBar } from "react-native";
 import axios from "axios";
 import { NavProps } from "../interfaces/NavProps";
 
@@ -9,11 +9,11 @@ interface AvaliaProdutoProps {
 }
 
 export default function AvaliaProduto({ route, navigation }: AvaliaProdutoProps) {
-   
+
     const { productId } = route.params;
 
     const [productName, setProductName] = useState("");
-    
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [feedback, setFeedback] = useState("");
@@ -68,6 +68,8 @@ export default function AvaliaProduto({ route, navigation }: AvaliaProdutoProps)
 
     return (
         <SafeAreaView>
+            <StatusBar barStyle="auto" />
+
             <Text>Avaliar Produto: {productName}</Text>
 
             <Text>Nome:</Text>

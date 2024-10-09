@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#302d2d',
+        backgroundColor: '#1b1b1b',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -21,7 +21,16 @@ export const globalStyles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 10,
         maxWidth: 300,
-        color : '#fff',
+        color: '#fff',
+        
+    },
+
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 20,
+        color: '#fff',
     }
-    
+
 });
