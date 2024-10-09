@@ -218,6 +218,8 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         marginHorizontal: 5,
+        width: 60,
+        alignItems: 'center'
     },
     selectedButton: {
         backgroundColor: '#4CAF50',
