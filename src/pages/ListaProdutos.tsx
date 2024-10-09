@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         width: 120,
         height: 120,
         marginBottom: 10,
-        borderRadius: 20,
+        borderRadius: 15,
     },
 
     itemText: {
