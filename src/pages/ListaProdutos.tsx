@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../services/api";
 import { useEffect, useState } from "react";
 import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { NavProps } from "../interfaces/NavProps";
@@ -13,9 +13,8 @@ export default function ListaProdutos({ navigation }: NavProps) {
     const [produtos, setProdutos] = useState<Produto[]>([]);
 
     useEffect(() => {
-        axios
-            .get(process.env.EXPO_PUBLIC_API_URL + 'products')
-            .then((response) => {
+        api.get('/products')
+            .then(response => {
                 setProdutos(response.data);
             })
             .catch((error) => {
