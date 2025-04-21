@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../services/api";
 import { useEffect, useState } from "react";
 import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { NavProps } from "../interfaces/NavProps";
@@ -13,9 +13,8 @@ export default function ListaProdutos({ navigation }: NavProps) {
     const [produtos, setProdutos] = useState<Produto[]>([]);
 
     useEffect(() => {
-        axios
-            .get(process.env.EXPO_PUBLIC_API_URL + 'products')
-            .then((response) => {
+        api.get('/products')
+            .then(response => {
                 setProdutos(response.data);
             })
             .catch((error) => {
@@ -25,10 +24,10 @@ export default function ListaProdutos({ navigation }: NavProps) {
 
     return (
         <SafeAreaView style={globalStyles.container}>
-            <StatusBar barStyle="auto" />
+            <StatusBar barStyle="light-content" />
             <Text style={globalStyles.title}>Lista de Produtos</Text>
 
-            <FlatList style={styles.list}
+            <FlatList
                 data={produtos}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
@@ -71,8 +70,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginBottom: 10,
         color: '#fff',
-        // borderWidth: 1,
-        // borderColor: '#ee0b0b',
 
     },
 
@@ -89,7 +86,6 @@ const styles = StyleSheet.create({
         padding: 15,
         marginVertical: 10,
         borderRadius: 5,
-        // alignItems: 'center',
         width: '90%',
         alignSelf: 'center',
 
