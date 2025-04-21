@@ -24,10 +24,10 @@ export default function ListaProdutos({ navigation }: NavProps) {
 
     return (
         <SafeAreaView style={globalStyles.container}>
-            <StatusBar barStyle="auto" />
+            <StatusBar barStyle="light-content" />
             <Text style={globalStyles.title}>Lista de Produtos</Text>
 
-            <FlatList style={styles.list}
+            <FlatList
                 data={produtos}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
@@ -70,8 +70,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginBottom: 10,
         color: '#fff',
-        // borderWidth: 1,
-        // borderColor: '#ee0b0b',
 
     },
 
@@ -88,7 +86,6 @@ const styles = StyleSheet.create({
         padding: 15,
         marginVertical: 10,
         borderRadius: 5,
-        // alignItems: 'center',
         width: '90%',
         alignSelf: 'center',
 
