@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, Button, SafeAreaView, Alert, Switch, StatusBar, StyleSheet, TouchableOpacity, Keyboard, TouchableWithoutFeedback } from "react-native";
-import axios from "axios";
-
 import { globalStyles } from "../global/globalStyles";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import api from "../services/api";
 
 interface AvaliaProdutoProps {
-    route: { params: { productId: number } }; // Defina o tipo do parâmetro
+    route: { params: { productId: number } };
     navigation: any;
 }
 
@@ -22,14 +21,17 @@ export default function AvaliaProduto({ route, navigation }: AvaliaProdutoProps)
     const [experience, setExperience] = useState("");
     const [recommend, setRecommend] = useState(false);
 
-    const handleExperience = (value) => {
+    interface ExperienceHandler {
+        (value: string): void;
+    }
+
+    const handleExperience: ExperienceHandler = (value) => {
         setExperience(value);
     };
 
     useEffect(() => {
-        // Buscar o nome do produto usando o productId
-        axios
-            .get(`${process.env.EXPO_PUBLIC_API_URL}products/${productId}`)
+        api
+            .get(`/products/${productId}`)
             .then((response) => {
                 setProductName(response.data.name);
             })
@@ -50,7 +52,7 @@ export default function AvaliaProduto({ route, navigation }: AvaliaProdutoProps)
     const handleSubmit = () => {
         if (!validateForm()) return;
 
-        const evaluationData = {
+        const reviewData = {
             id: Date.now(),
             productId,
             name,
@@ -60,8 +62,8 @@ export default function AvaliaProduto({ route, navigation }: AvaliaProdutoProps)
             recommend,
         };
 
-        axios
-            .post(`${process.env.EXPO_PUBLIC_API_URL}evaluations`, evaluationData)
+        api
+            .post(`/reviews`, reviewData)
             .then(() => {
                 Alert.alert("Sucesso", "Feedback enviado com sucesso!");
                 navigation.goBack();
@@ -74,7 +76,7 @@ export default function AvaliaProduto({ route, navigation }: AvaliaProdutoProps)
 
     return (
         <SafeAreaView style={globalStyles.container}>
-            <StatusBar barStyle="auto" />
+            <StatusBar barStyle="light-content" />
 
             <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 
@@ -161,7 +163,12 @@ export default function AvaliaProduto({ route, navigation }: AvaliaProdutoProps)
                         <Text style={styles.text}>Sim</Text>
                     </View>
 
-                    <Button color={Colors.white} title="Enviar Feedback" onPress={handleSubmit} />
+                    <TouchableOpacity
+                        onPress={handleSubmit}
+                        style={styles.feedbackBtn}
+                    >
+                        <Text style={styles.buttonText}>Enviar Feedback</Text>
+                    </TouchableOpacity>
                 </View>
             </TouchableWithoutFeedback>
         </SafeAreaView>
@@ -198,16 +205,13 @@ const styles = StyleSheet.create({
         padding: 5,
         color: '#fff',
     },
-
     switchRow: {
         flexDirection: 'row',
-        alignItems: 'center',
+        justifyContent: 'flex-start',
         gap: 10,
-        marginVertical: 10
+        height: 40,
+        marginVertical: 8
     },
-
-
-
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -226,5 +230,12 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#fff',
+    },
+    feedbackBtn: {
+        backgroundColor: '#6d6de2',
+        padding: 10,
+        borderRadius: 5,
+        marginTop: 20,
+        alignItems: 'center',
     },
 });
