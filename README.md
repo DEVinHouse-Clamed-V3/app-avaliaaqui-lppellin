@@ -29,5 +29,6 @@ Um aplicativo desenvolvido para avaliação de serviços e produtos.
    `git clone https://github.com/DEVinHouse-Clamed-V3/app-avaliaaqui-lppellin.git`
 2. Instale as dependências:
   `npm install`
-3. Inicie o aplicativo:
+3. Configure o IP no arquivo  `api.ts`
+4. Inicie o aplicativo:
   `npm start`
